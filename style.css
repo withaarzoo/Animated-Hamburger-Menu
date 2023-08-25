@@ -1,0 +1,136 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle at center, #222, #000);
+}
+body #wrap {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.575);
+  transition-delay: 1.85s;
+  pointer-events: none;
+  filter: hue-rotate(70deg);
+}
+body #wrap:nth-of-type(2) {
+  z-index: -1;
+}
+body #wrap:nth-of-type(2):before {
+  content: "click me";
+  text-transform: uppercase;
+  position: absolute;
+  color: rgba(255, 255, 255, 0.75);
+  z-index: 999;
+  font-family: Futura;
+  letter-spacing: 2px;
+  font-size: 8px;
+  left: 5px;
+  width: 100%;
+  top: calc(50% + 40px);
+  text-align: center;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out,
+    letter-spacing 0.3s ease-in-out;
+  transition-delay: 2.5s, 2.5s, 0s;
+  opacity: 1;
+}
+body #wrap:nth-of-type(2) svg path {
+  transition-delay: 0s, 0s;
+  stroke: #fff;
+}
+body #wrap:nth-of-type(2) svg:nth-of-type(2) path {
+  transition-delay: 0.75s, 0.75s;
+}
+body #wrap:nth-of-type(2) svg:nth-of-type(3) path {
+  transition-delay: 1.5s, 1.5s;
+}
+body input {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 999;
+  opacity: 0;
+  cursor: pointer;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+body input:hover ~ #wrap:before {
+  transition-delay: 2.5s, 2.5s, 0s;
+  letter-spacing: 5px;
+}
+body input:checked ~ #wrap {
+  transform: scaleX(0.9);
+}
+body input:checked ~ #wrap:before {
+  opacity: 0;
+  transform: translateY(25vh);
+  transition-delay: 0s, 0s, 0s;
+}
+body input:checked ~ #wrap:nth-of-type(2) svg path {
+  stroke: #fff;
+}
+body input:checked ~ #wrap svg {
+  transition-delay: 0s;
+}
+body input:checked ~ #wrap svg:first-of-type {
+  transform: translateY(0px);
+}
+body input:checked ~ #wrap svg:first-of-type path {
+  transition-delay: 0.5s, 0.5s;
+}
+body input:checked ~ #wrap svg:nth-of-type(2) {
+  transform: translateY(0px) scaleY(-1);
+}
+body input:checked ~ #wrap svg:nth-of-type(2) path {
+  transition-delay: 0.5s, 0.5s;
+}
+body input:checked ~ #wrap svg:nth-of-type(3) path {
+  stroke-dasharray: 10000px;
+  stroke-dashoffset: 10000px;
+  transition-delay: 1s, 1s;
+}
+body input:checked ~ #wrap svg path {
+  stroke-dasharray: 5000px;
+  stroke-dashoffset: -4150px;
+  stroke: yellow;
+}
+
+svg {
+  position: absolute;
+  width: 200px;
+  transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.575);
+  transition-delay: 2s;
+  margin-left: -9px;
+}
+svg:first-of-type {
+  transform: translateY(5px);
+}
+svg:nth-of-type(2) {
+  transform: translateY(-6px) scaleY(-1);
+}
+svg:nth-of-type(2) path {
+  transition: stroke-dasharray 1.2s ease-in-out,
+    stroke-dashoffset 1.2s ease-in-out, stroke 1.2s ease-in-out;
+  transition-delay: 0.6s, 0.6s, 0.6s;
+}
+svg:nth-of-type(3) {
+  transform: translateY(25px);
+}
+svg:nth-of-type(3) path {
+  transition: stroke-dasharray 0.25s ease-in-out,
+    stroke-dashoffset 0.25s ease-in-out, stroke 0.25s ease-in-out;
+  transition-delay: 1.8s, 1.8s, 1.8s;
+}
+svg path {
+  stroke: blue;
+  stroke-width: 40px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 4400px;
+  stroke-dashoffset: 4200px;
+  transition: stroke-dasharray 1.5s ease-in-out,
+    stroke-dashoffset 1.5s ease-in-out, stroke 1.5s ease-in-out;
+} 
